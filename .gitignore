@@ -3,5 +3,7 @@ venv/*
 __pycache__/*
 .ipynb_checkpoints/*
 */.ipynb_checkpoints/*
-gitlab/*
-jenkins/*
+gitlab/config/*
+gitlab/data/*
+gitlab/logs/*
+jenkins/data/*
