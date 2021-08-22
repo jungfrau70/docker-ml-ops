@@ -6,6 +6,7 @@ services:
         build:
             context: ./tensorboard/
             dockerfile: tensorboard.Dockerfile
+        container_name: dl-tensorboard
         ports:
             - ${TENSORBOARD_PORT}:${TENSORBOARD_PORT}
         volumes:
@@ -25,6 +26,7 @@ services:
             context: ./jupyter/
             dockerfile: jupyter.Dockerfile
         env_file: ./.env
+        container_name: dl-jupyter
         ports:
             - ${JUPYTER_PORT}:${JUPYTER_PORT}
         volumes:
@@ -49,6 +51,7 @@ services:
             context: ./jenkins/
             dockerfile: jenkins.Dockerfile
         restart: always
+        container_name: dl-jenkins
         env_file: ./.env
         volumes:
         - ${JENKINS_DIR}:/var/jenkins_home
