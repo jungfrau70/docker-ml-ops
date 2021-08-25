@@ -52,6 +52,7 @@ services:
             dockerfile: jenkins.Dockerfile
         restart: always
         container_name: dl-jenkins
+        hostname: "localhost"
         env_file: ./.env
         volumes:
         - ${JENKINS_DIR}:/var/jenkins_home
@@ -64,14 +65,16 @@ services:
             TZ: ${TZ}
 
     gitlab:
-        #image: gitlab/gitlab-ce:latest 
-        image: jungfrau70/gitlab:latest
+        image: dl-gitlab
+        build:
+            context: ./gitlab/
+            dockerfile: gitlab.Dockerfile 
         container_name: dl-gitlab
-        restart: always
         hostname: "localhost"
+        restart: always
         environment:
             GITLAB_OMNIBUS_CONFIG: |
-                external_url 'https://gitlab.localhost.com'
+                external_url 'http://gitlab.localhost.com'
                 # Add any other gitlab.rb configuration here, each on its own line
         ports:
             - "80:80"

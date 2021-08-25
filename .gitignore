@@ -7,3 +7,6 @@ gitlab/config/*
 gitlab/data/*
 gitlab/logs/*
 jenkins/data/*
+gitlab/config/*
+gitlab/data/*
+gitlab/logs/*
